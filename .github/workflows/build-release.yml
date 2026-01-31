@@ -105,10 +105,6 @@ jobs:
           make package/${PACKAGE_NAME}/status/{clean,compile} V=s
           find "$SDK_HOME/bin/" -type f -name "*.ipk" -exec ls -lh {} \;
           cd -
-      - name: tags
-        run: |
-          git tag "v3"
-          git push origin "v3"
       - name: Copy Bin Files
         run: |
           find "$SDK_HOME/bin/" -type f -name "${PACKAGE_NAME}*.ipk" -exec cp {} "${{ github.workspace }}" \;
